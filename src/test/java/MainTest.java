@@ -19,12 +19,11 @@ public class MainTest {
     public void mainTest() {
         String text = "На свете есть океан , на океане остров , на острове дерево , на дереве заяц , в зайце утка , в утке яйцо , в яйце иголка , смерть Кощея на игле :(";
 
-        KoscheiTheDeathless koscheiTheDeathless =
-                applicationContext.getBean(KoscheiTheDeathless.class);
+        KoscheiTheDeathless koscheiTheDeathless = applicationContext.getBean(KoscheiTheDeathless.class);
         System.out.println(koscheiTheDeathless.getRulesByDeth());
         String testText = koscheiTheDeathless.getRulesByDeth();
 
-        if (!testText.contains(text) && testText.length() <= text.length()) {
+        if (!testText.contains(text) || testText.length() <= text.length()) {
             Assert.fail("Тест провален, не корректная связь бинов. Итоговая фраза не верна.");
         }
     }
